@@ -9,11 +9,14 @@ git cms-init
 git clone https://github.com/mkizilov/OTMB_data_emu.git -b CMSSW_13_0_3
 scram b -j 8
 
+### Unpack data
+```shell
+cmsRun IORawData/CSCCommissioning/test/readFile_b904_Run3.py firstRun=341761 inputFiles="YOURFILE.raw" maxEvents=10000 inputFilesGEM=file:runFakeGEM.raw readGEMData=True useB904ME11=True
+```
 ### Run emulator
 ```shell
 cmsRun L1Trigger/CSCTriggerPrimitives/test/runCSCTriggerPrimitiveProducer_cfg.py run3=True unpack=True l1=True l1GEM=True unpackGEM=True dqm=True dqmGEM=True useB904ME11=True runCCLUTOTMB=True runME11ILT=True useB904ME11PositiveEndcap=True useB904GE11Long=True preTriggerAnalysis=True maxEvents=-1 inputFiles="file:YOURFILE"
 ```
-YOURFILE is your unpacked .raw data.
 If you want to use OTMB_data_emu_analyzer for making plots write stdout and stderr into .txt file while running emulator. You can use this command instead:
 ```shell
 cmsRun L1Trigger/CSCTriggerPrimitives/test/runCSCTriggerPrimitiveProducer_cfg.py run3=True unpack=True l1=True l1GEM=True unpackGEM=True dqm=True dqmGEM=True useB904ME11=True runCCLUTOTMB=True runME11ILT=True useB904ME11PositiveEndcap=True useB904GE11Long=True preTriggerAnalysis=True maxEvents=-1 inputFiles="file:YOURFILE" > test.txt 2>&1
