@@ -13,6 +13,12 @@ scram b -j 8
 ```shell
 cmsRun IORawData/CSCCommissioning/test/readFile_b904_Run3.py firstRun=341761 inputFiles="YOURFILE.raw" maxEvents=10000 inputFilesGEM=file:runFakeGEM.raw readGEMData=True useB904ME11=True
 ```
+### Edit emulator alignment corrections (eightstrips level)
+Add desired alignment and run file. Or edit them manually here `src/L1Trigger/CSCTriggerPrimitives/data/GEMCSC/AlignmentCorrection`
+```shell
+python3 tools_L1Trigger/lookup_table.py
+```
+
 ### Run emulator
 ```shell
 cmsRun L1Trigger/CSCTriggerPrimitives/test/runCSCTriggerPrimitiveProducer_cfg.py run3=True unpack=True l1=True l1GEM=True unpackGEM=True dqm=True dqmGEM=True useB904ME11=True runCCLUTOTMB=True runME11ILT=True useB904ME11PositiveEndcap=True useB904GE11Long=True preTriggerAnalysis=True maxEvents=-1 inputFiles="file:YOURFILE"
