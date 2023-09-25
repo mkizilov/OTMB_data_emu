@@ -2,12 +2,14 @@
 
 ## How to use
 ### Set up
+```Shell
 scram p -n NameOfYourDirectory CMSSW_13_0_3
 cd NameOfYourDirectory/src/
 cmsenv
 git cms-init
 git clone https://github.com/mkizilov/OTMB_data_emu.git -b CMSSW_13_0_3
 scram b -j 8
+```
 
 ### Unpack data
 ```shell
